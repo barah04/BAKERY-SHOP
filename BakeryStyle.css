@@ -1,0 +1,455 @@
+body {
+    background-color: #e7d7af;
+}
+
+
+/* شريط العلوي */
+nav {
+    display: flex;
+    align-items: center;        /* محاذاة عمودية وسط */
+    justify-content: center;    /* جميع العناصر في الوسط أفقياً */
+    gap: 150px;                  /* مسافة بين العناصر */
+    padding: 4px 50px;         /* فراغ من الأعلى/الأسفل والجانبين */
+    background-color: #f9efd7;
+}
+
+nav a.active {
+  color: #572f0c;                  /* لون النص مميز */
+  background-color: rgba(127, 75, 30, 0.444); /* مربع شفاف خلف النص */
+  padding: 5px 10px;               /* فراغ داخلي حول الكلمة */
+  border-radius: 5px;              /* زوايا مدورة */
+}
+
+ 
+/* روابط التنقل */
+nav a {
+    text-decoration: none;
+    color: #371f0e;
+    font-weight: bold;
+}
+
+/* زر الطلب */
+nav button {
+    padding: 8px 15px;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: #e04e2f;
+}
+
+/*صورة الكبيرة */
+.full-image {
+    width: 100%;       /* تغطي كامل عرض الشاشة */
+    height: auto;      /* يحافظ على نسبة الطول للعرض */
+    display: block;    /* يزيل المسافات أسفل الصورة */
+}
+
+/* عنوان في الوسط */
+.center-title {
+    text-align: center;   /* يجعل النص في الوسط أفقياً */
+    margin-top: 50px;     /* مسافة من الأعلى (اختياري) */
+    font-size: 50px;      /* حجم الخط */
+    color: #140c06;          /* لون النص */
+}
+
+/*نص في الوسط */ 
+.center-text {
+    text-align: center;   /* يجعل النص في الوسط أفقياً */
+    margin-top: 50px;     /* مسافة من الأعلى (اختياري) */
+    font-size: 22px;      /* حجم الخط */
+    color: #140c06;          /* لون النص */
+}
+
+
+/*صور و كابشن تاعها*/
+.menu-container {
+    display: flex;             /* يجعل العناصر بجانب بعض */
+    justify-content: center;   /* يضعهم في منتصف الصفحة */
+    gap: 20px;                 /* مسافة بين المربعات */
+    margin-top: 40px;
+    flex-wrap: wrap;           /* إذا الشاشة صغيرة، يلتف العناصر للسطر التالي */
+}
+
+.menu-item {
+    background-color: #f9efd7; 
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;          /*  عرض المربع */
+    text-align: center;    
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.menu-item img {
+    width: 100%;           /* تغطي عرض المربع */
+    height: 300px;         /* تحديد ارتفاع  للصورة */
+    object-fit: cover;     /* يحافظ على نسب الصورة ويقص الزائد */
+    border-radius: 10px;
+}
+
+.menu-item h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #0f0d0d;
+}
+
+.menu-item p {
+    font-size: 14px;
+    color: #1e0d0d;
+    margin-top: 5px;
+}
+
+
+/* قسم الزيارة */
+.visit-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 1000px; /* لتحديد عرض مناسب */
+    gap: 30px;
+}
+
+.visit-text {
+    flex: 1;
+    font-size: 18px;
+    color: #140c06;
+}
+
+.visit-text h1 {
+    text-align: left;   /* العنوان يصير على اليسار */
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.visit-text button {
+    padding: 10px 20px;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.visit-text button:hover {
+    background-color: #e04e2f;
+}
+
+.visit-images {
+    flex: 1;
+    display: flex;        /* صور جنب بعض */
+    gap: 15px;            /* مسافة بين الصورتين */
+    justify-content: center;
+}
+
+.visit-images img {
+    width: 48%;           /* كل صورة نصف المساحة تقريباً */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* معرض الصور */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.gallery-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox Popup */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 40%;      
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #f04e2f;
+}
+
+/* ------------ قسم About AS ------------ */
+.about-section, .about-quality {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9efd7;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.about-section h2, .about-quality h2 {
+    color: #8B4513;
+    margin-bottom: 15px;
+}
+
+.about-section p, .about-quality p {
+    font-size: 18px;
+    color: #140c06;
+    line-height: 1.6;
+}
+
+.about-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+}
+
+.about-gallery img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.chef-experience {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9efd7;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.chef-experience h2 {
+    color: #8B4513;
+    margin-bottom: 15px;
+}
+
+.chef-experience ul {
+    font-size: 18px;
+    color: #140c06;
+    line-height: 1.6;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+
+
+
+/* ------------ قسم المنيو ------------ */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.menu-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.2s;
+}
+
+.menu-card:hover {
+  transform: scale(1.05);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.menu-card h3 {
+  margin: 15px 0 5px;
+  color: #333;
+}
+
+.menu-card p {
+  color: #666;
+  margin: 5px 0;
+}
+
+.price {
+  font-weight: bold;
+  color: #D2691E;
+  margin-top: 10px;
+}
+
+.back {
+  display: block;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.back a {
+  text-decoration: none;
+  background: #D2691E;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.back a:hover {
+  background: #a0522d;
+}
+/*صفحة التواصل */
+
+.social-delivery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.social-box, .delivery-box {
+  flex: 1;
+  min-width: 250px;
+  background-color: #f9efd7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.social-box a {
+  display: block;
+  text-decoration: none;
+  color: #8B4513;
+  font-weight: bold;
+  margin: 10px 0;
+  transition: color 0.3s;
+}
+
+.social-box a:hover {
+  color: #e04e2f;
+}
+
+.delivery-box h3 {
+  margin-bottom: 10px;
+  color: #8B4513;
+}
+
+.delivery-box p {
+  margin: 5px 0;
+  color: #140c06;
+}
+
+
+/*صفحة التعليقات */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: #8B4513;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form button {
+  background-color: #8B4513;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #e04e2f;
+}
+
+.reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.review-card {
+  background-color: #f9efd7;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.review-card h3 {
+  color: #8B4513;
+  margin-bottom: 10px;
+}
+
+.review-card p {
+  color: #140c06;
+  font-size: 16px;
+  line-height: 1.5;
+}

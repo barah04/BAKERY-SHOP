@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Reviews</title>
+  <link rel="stylesheet" href="BakeryStyle.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <nav>
+    <img src="logo.png" alt="Logo" width="100">
+    <a href="Bakery.html">Home</a>
+    <a href="AboutAs.html">About Us</a>
+    <a href="Menu.html">Menu</a>
+    <a href="contact.html">Contact</a>
+    <a href="Reviews.html" class="active">Reviews</a>
+  </nav>
+
+  <h1 class="center-title"> Customer Reviews</h1>
+
+  <!-- Reviews Section -->
+  <div class="reviews-container">
+    <div class="review-card">
+      <h3><i class="fa-solid fa-star"></i> Sara</h3>
+      <p>"The best bakery in town! Always fresh and tasty."</p>
+    </div>
+
+    <div class="review-card">
+      <h3><i class="fa-solid fa-star"></i> Omar</h3>
+      <p>"Amazing staff and cozy atmosphere."</p>
+    </div>
+
+    <div class="review-card">
+      <h3><i class="fa-solid fa-star"></i> Lina</h3>
+      <p>"I love their croissants and coffee, simply perfect!"</p>
+    </div>
+  </div>
+
+  <!-- Review Form -->
+  <div class="about-section">
+    <h2>Submit Your Review</h2>
+    <form class="contact-form" action="mailto:info@bakery.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating" required>
+        <option value="">Select Rating</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="1">⭐</option>
+      </select>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your review" required></textarea>
+
+      <button type="submit">Send Review</button>
+    </form>
+  </div>
+
+</body>
+</html>
